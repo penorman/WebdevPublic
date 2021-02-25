@@ -113,3 +113,19 @@ video {
     margin-top: 40px;
     float: right;
 }
+
+/* Logged in page */
+
+.loggedin {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.loggedin h1 {
+    color: rgb(255, 255, 255);
+    font-size: 140px;
+    text-align: center;
+    letter-spacing: 5px;
+}
