@@ -18,12 +18,9 @@
     <title>Ace Training</title>
 </head>
 <body>
-    <h1>
-        Hello
-    </h1>
     <?php
         if (isset($_SESSION["userEmail"])) {
-            echo "<h1>Welcome " . $_SESSION["userFirstName"] . " " . $_SESSION["userLastName"] . "</h1>";
+            echo "<h1>Welcome " . $_SESSION["userFirstName"] . " " . $_SESSION["userLastName"] . " You are a " . $_SESSION["userType"] . "</h1>";
         }
     ?>
 </body>

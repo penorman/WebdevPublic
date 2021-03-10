@@ -39,8 +39,8 @@
         }
 
     //Function to create user in database
-    function createUser($conn, $firstName, $lastName, $email, $course, $password) {
-        $sql = "INSERT INTO students (firstName, lastName, email, course, password) VALUES (?, ?, ?, ?, ?)";
+    function createUser($conn, $firstName, $lastName, $email, $course, $password, $userType) {
+        $sql = "INSERT INTO students (firstName, lastName, email, course, password, userType) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../html/enrol.html?error=stmtfailed");
@@ -50,7 +50,7 @@
         //Password to be hashed in database
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
     
-        mysqli_stmt_bind_param($stmt, "sssss", $firstName, $lastName, $email, $course, $hashedPwd);
+        mysqli_stmt_bind_param($stmt, "ssssss", $firstName, $lastName, $email, $course, $hashedPwd, $userType);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("location: ../html/index.html?error=none");
@@ -70,21 +70,15 @@
             $_SESSION["userEmail"] = $emailExists["email"];
             $_SESSION["userFirstName"] = $emailExists["firstName"];
             $_SESSION["userLastName"] = $emailExists["lastName"];
-            header("location: test.inc.php");
+            $_SESSION["userType"] = $emailExists["userType"];
+
+            if ($_SESSION["userType"] == "student") {
+                header("location: student.php");
+            }
+            if ($_SESSION["userType"] == "tutor") {
+                header("location: tutor.php");
+            }
             exit();
         }
-
-
-        //$pwdHashed = $emailExists["password"];
-        //$checkPwd = password_verify($pwd, $pwdHashed);
-
-        //if ($pwdHashed === false) {
-            //header("location: ../login.html?error=wrongpassword");
-            //exit();
-        //}
-        //else if ($pwdHashed !== false) {
-            //header("location: ../index.html");
-            //exit();
-        //}
     }
 ?>
