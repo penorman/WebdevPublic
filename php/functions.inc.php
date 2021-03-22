@@ -5,7 +5,7 @@
         $sql = "SELECT * FROM students WHERE email = ?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: ../html/enrol.html?error=stmtfailed");
+            header("location: enrol.php?error=stmtfailed");
             exit();
         }
 
@@ -43,7 +43,7 @@
         $sql = "INSERT INTO students (firstName, lastName, email, course, password, userType) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: ../html/enrol.html?error=stmtfailed");
+            header("location: enrol.php?error=stmtfailed");
             exit();
         }
 
@@ -62,7 +62,7 @@
         $emailExists = emailExists($conn, $email);
 
         if ($emailExists === false) {
-            header("location: ../html/login.html?error=emaildontexist");
+            header("location: login.php?error=emaildontexist");
             exit();
         }
         else if ($emailExists !== false) {
@@ -71,6 +71,8 @@
             $_SESSION["userFirstName"] = $emailExists["firstName"];
             $_SESSION["userLastName"] = $emailExists["lastName"];
             $_SESSION["userType"] = $emailExists["userType"];
+            $_SESSION["userCourse"] = $emailExists["course"];
+            $_SESSION["userId"] = $emailExists["id"];
 
             if ($_SESSION["userType"] == "student") {
                 header("location: student.php");

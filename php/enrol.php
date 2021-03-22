@@ -20,7 +20,7 @@
         <div class="header">
             <h1>Ace Training</h1>
         </div>
-        <form action="../php/enrol.inc.php" method="post">
+        <form action="enrol.inc.php" method="post">
             <div class="mb-3">
                 <label for="FirstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" name="firstName" required>
@@ -68,7 +68,19 @@
                 <button type="submit" name="submit">Enrol</button>
             </div>
         </form>
+
+        <?php
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "passwordsdontmatch") {
+                    echo "<p style='color:white; text-align:right;'>Password doesn't match!</p>";
+                }
+                else if ($_GET["error"] == "emailtaken") {
+                    echo "<p style='color:white; text-align:right;'>Provided E-Mail Address has been already taken!</p>";
+                }
+            }
+        ?>
     </div>
+
     <div class="background-video">
         <video autoplay muted loop src="../styles/assets/video.mp4"></video>
     </div>

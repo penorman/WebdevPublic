@@ -11,7 +11,7 @@
         loginUser($conn, $email, $pwd);
     }
     else {
-        header("location: ../html/login.html");
+        header("location: login.php");
         exit();
     }
 

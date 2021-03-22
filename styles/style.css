@@ -1,3 +1,7 @@
+/* Stylesheet for index.html enrol.html and login.html */
+
+
+
 @font-face {
     font-family: Poppins-Medium;
     src: url(./assets/Poppins-Medium.ttf);
@@ -99,7 +103,7 @@ video {
 .mb-3 label {
     color:rgb(255, 255, 255);
     font-size: 20px;
-    margin: 10px;
+    margin: 5px;
 }
 
 .mb-3 button {
@@ -109,9 +113,13 @@ video {
     width: 30%;
     display: block;
     font-size: 30px;
+    margin-top: 30px;
     font-weight: bold;
-    margin-top: 40px;
     float: right;
+}
+
+p {
+    color:rgb(255, 255, 255);
 }
 
 /* Logged in page */

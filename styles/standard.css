@@ -1,0 +1,65 @@
+/* Stylesheet for student.php and tutor.php */
+
+
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url(./assets/Poppins-Medium.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins-Medium;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #113623;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(226,226,226);
+    letter-spacing: 2px;
+    font-size: 20px;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.5s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgb(226,226,226);
+    color: #000000;
+}
+
+.containerAbout {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.containerAbout h1 {
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.paragraphAbout p {
+    margin: 30px;
+}

@@ -33,6 +33,13 @@
                 <button type="submit" name="submit">Login</button>
             </div>
         </form>
+        <?php
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emaildontexist") {
+                    echo "<p style='color:white; text-align:right;'>E-Mail Address doesn't exist!</p>";
+                }
+            }
+        ?>
     </div>
     <div class="background-video">
         <video autoplay muted loop src="../styles/assets/video.mp4"></video>

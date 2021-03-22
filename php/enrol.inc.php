@@ -14,11 +14,11 @@
         require_once 'functions.inc.php';
 
         if (emailExists($conn, $email) !== false) {
-            header("location: ../html/enrol.html?error=emailtaken");
+            header("location: enrol.php?error=emailtaken");
             exit();
         }
         if (pwdMatch($password, $repeatPassword) !== false) {
-            header("location: ../html/enrol.html?error=passwordsdontmatch");
+            header("location: enrol.php?error=passwordsdontmatch");
             exit();
         }
 
@@ -26,7 +26,7 @@
 
     }
     else {
-        header("location: ../html/enrol.html");
+        header("location: enrol.php");
         exit();
     }
 
