@@ -8,24 +8,25 @@
         $course = $_POST["course"];
         $password = $_POST["password"];
         $repeatPassword = $_POST["repeatPassword"];
+        $userType = $_POST["userType"];
 
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
         if (emailExists($conn, $email) !== false) {
-            header("location: ../html/enrol.html?error=emailtaken");
+            header("location: enrol.php?error=emailtaken");
             exit();
         }
         if (pwdMatch($password, $repeatPassword) !== false) {
-            header("location: ../html/enrol.html?error=passwordsdontmatch");
+            header("location: enrol.php?error=passwordsdontmatch");
             exit();
         }
 
-        createUser($conn, $firstName, $lastName, $email, $course, $password, $repeatPassword);
+        createUser($conn, $firstName, $lastName, $email, $course, $password, $userType);
 
     }
     else {
-        header("location: ../html/enrol.html");
+        header("location: enrol.php");
         exit();
     }
 
