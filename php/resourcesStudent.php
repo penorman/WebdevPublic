@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,14 +24,23 @@
             </ul>
         </nav>
     </header>
-    
-    <?php
-        if (isset($_SESSION["userEmail"])) {
-            echo "<h1>Welcome " . $_SESSION["userFirstName"] . " " . $_SESSION["userLastName"] . "</h1>";
-            echo "<h2>Your Personal ID: " . $_SESSION["userId"] . "</h2>";
-            echo "<h2>Your E-Mail Address: " . $_SESSION["userEmail"] . "</h2>";
-            echo "<h2>Your course: " . $_SESSION["userCourse"] . "</h2>";
-        }
-    ?>
+    <table>
+        <tr>
+            <td>
+                <?php
+                    require_once 'dbh.inc.php';
+
+                    $query = "SELECT * FROM filedownload ";
+                    $run = mysqli_query($conn, $query);
+
+                    while($rows = mysqli_fetch_assoc($run)){
+                        ?>
+                    <h3><?php echo $rows['filename'] ?></h3><a href="download.php?file=<?php echo $rows['filename'] ?>">Download</a><br>
+                <?php
+                    }
+                ?>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
