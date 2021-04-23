@@ -27,9 +27,9 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="tutor.php">Home</a></li>
-                <li><a href="#">Resources</a></li>
+                <li><a href="resourcesTutor.php">Resources</a></li>
                 <li><a href="#">Assignments</a></li>
-                <li><a href="#">Students</a></li>
+                <li><a href="studentsList.php">Students</a></li>
             </ul>
         </nav>
     </header>
