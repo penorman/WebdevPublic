@@ -9,6 +9,7 @@
         $password = $_POST["password"];
         $repeatPassword = $_POST["repeatPassword"];
         $userType = $_POST["userType"];
+        $levelType = $_POST["levelType"];
 
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
@@ -22,7 +23,7 @@
             exit();
         }
 
-        createUser($conn, $firstName, $lastName, $email, $course, $password, $userType);
+        createUser($conn, $firstName, $lastName, $email, $course, $password, $userType, $levelType);
 
     }
     else {
