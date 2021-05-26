@@ -23,7 +23,7 @@
         <form action="../php/login.inc.php" method="post">
             <div class="mb-3">
                 <label for="Email" class="form-label">E-Mail Address</label>
-                <input type="email" class="form-control" name="email" required>
+                <input class="form-control" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label">Password</label>

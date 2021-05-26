@@ -13,6 +13,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
 
+    <!-- Select2 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="../scripts/scripts.js"></script>
+
     <title>Enrol</title>
 </head>
 <body>
@@ -35,19 +41,18 @@
             </div>
             <div class="mb-3">
                 <label for="dataList" class="form-label">Course Subject</label>
-                <input class="form-control" list="courseList" id="dataList" name="course" placeholder="Type to search...">
-                <datalist id="courseList">
-                    <option name="course" value="Law">
-                    <option name="course" value="Computer Science">
-                    <option name="course" value="Business Studies">
-                    <option name="course" value="Sports & Exercise Science">
-                    <option name="course" value="Medicine">
-                    <option name="course" value="Economics">
-                    <option name="course" value="Architecture">
-                    <option name="course" value="Accounting & Finance">
-                    <option name="course" value="Biology">
-                    <option name="course" value="History">
-                </datalist>
+                <select class="dataList" name="course">
+                    <option name="course" value="Law">Law</option>
+                    <option name="course" value="Computer Science">Computer Science</option>
+                    <option name="course" value="Business Studies">Business Studies</option>
+                    <option name="course" value="Sports & Exercise Science">Sports & Exercise Science</option>
+                    <option name="course" value="Medicine">Medicine</option>
+                    <option name="course" value="Economics">Economics</option>
+                    <option name="course" value="Architecture">Architecture</option>
+                    <option name="course" value="Accounting & Finance">Accounting & Finance</option>
+                    <option name="course" value="Biology">Biology</option>
+                    <option name="course" value="History">History</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label">Password</label>
@@ -59,7 +64,7 @@
             </div>
             <div class="mb-3">
                 <label for="userType" class="form-label">User Type</label>
-                <select name="userType" id="userType">
+                <select class="userType" name="userType" id="userType">
                     <option value="student">Student</option>
                     <option value="tutor">Tutor</option>
                 </select>                

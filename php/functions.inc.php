@@ -49,11 +49,13 @@
 
         //Password to be hashed in database
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+        
     
         mysqli_stmt_bind_param($stmt, "ssssss", $firstName, $lastName, $email, $course, $hashedPwd, $userType);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("location: ../html/index.html?error=none");
+        echo("$firstName, $lastName, $email, $course, $password, $userType");
         exit();
     }
 
