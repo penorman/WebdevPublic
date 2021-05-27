@@ -39,8 +39,8 @@
         }
 
     //Function to create user in database
-    function createUser($conn, $firstName, $lastName, $email, $course, $password, $userType) {
-        $sql = "INSERT INTO students (firstName, lastName, email, course, password, userType) VALUES (?, ?, ?, ?, ?, ?)";
+    function createUser($conn, $firstName, $lastName, $email, $course, $password, $userType, $levelType) {
+        $sql = "INSERT INTO students (firstName, lastName, email, course, password, userType, levelType) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: enrol.php?error=stmtfailed");
@@ -51,11 +51,11 @@
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
         
     
-        mysqli_stmt_bind_param($stmt, "ssssss", $firstName, $lastName, $email, $course, $hashedPwd, $userType);
+        mysqli_stmt_bind_param($stmt, "sssssss", $firstName, $lastName, $email, $course, $hashedPwd, $userType, $levelType);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("location: ../html/index.html?error=none");
-        echo("$firstName, $lastName, $email, $course, $password, $userType");
+        echo("$firstName, $lastName, $email, $course, $password, $userType, $levelType");
         exit();
     }
 

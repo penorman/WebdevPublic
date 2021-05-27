@@ -70,6 +70,14 @@
                 </select>                
             </div>
             <div class="mb-3">
+                <label for="levelType" class="form-label">Level Type</label>
+                <select class="levelType" name="levelType" id="levelType">
+                    <option value="C">C</option>
+                    <option value="I">I</option>
+                    <option value="H">H</option>
+                </select>                
+            </div>
+            <div class="mb-3">
                 <button type="submit" name="submit">Enrol</button>
             </div>
         </form>
