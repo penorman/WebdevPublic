@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +24,8 @@
                 <li><a href="student.php">Home</a></li>
                 <li><a href="../html/about.html">About</a></li>
                 <li><a href="resourcesStudent.php">Resources</a></li>
-                <li><a href="../html/assignments.html">Assignments</a></li>
+                <li><a href="assignmentsStudent.php">Assignments</a></li>
+                <li><a href="studentReport.php">Report</a></li>
             </ul>
         </nav>
     </header>
@@ -30,15 +35,24 @@
                 <?php
                     require_once 'dbh.inc.php';
 
-                    $query = "SELECT * FROM filedownload ";
-                    $run = mysqli_query($conn, $query);
-
-                    while($rows = mysqli_fetch_assoc($run)){
-                        ?>
-                    <h3><?php echo $rows['filename'] ?></h3><a href="download.php?file=<?php echo $rows['filename'] ?>">Download</a><br>
-                <?php
+                    $query = "SELECT * FROM tblresource WHERE resourceType = 'studentResource' AND studentsVisible = 1";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) == 0) {
+                        ?><h3>No Resources Available</h3><br>
+                        <?php                            
                     }
-                ?>
+
+                    while($rows = mysqli_fetch_assoc($result)){
+                        $visibleLevels = json_decode($rows['visibleToLevelTypes'], true);
+                        $userLevel = $_SESSION['userLevel'];
+                        if ($visibleLevels[$userLevel] == true){
+                        ?><h3><?php echo $rows['resourceName'] ?></h3><a href="download.php?file=<?php echo $rows['resourcePath'] ?>">Download</a><br>
+                        <?php
+                            }
+                        }
+                        ?>
+                        
+                        
             </td>
         </tr>
     </table>

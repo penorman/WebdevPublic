@@ -1,0 +1,37 @@
+{
+    "questions": [
+        {
+            "questionType": "truefalse",
+            "questionText": "The answer to this question is true",
+            "questionAnswer" : [1],
+            "points": 4
+        },
+        {
+            "questionType": "multichoice",
+            "questionText": "The answer to this question is 2",
+            "questionAnswer" : [2, 3],
+            "questionOptions" : [2, 3, 4, "hello"],
+            "selectionLimit": 2,
+            "points": 4
+        },
+
+        {
+            "questionType": "fillblank",
+            "questionText":"The answer to this question is 'test'",
+            "questionAnswer": ["test"],
+            "points": 4
+        },
+        {
+            "questionType": "fillblank",
+            "questionText": "The answer to this question is 'test' and 'test2'",
+            "questionAnswer": ["test", "test2"],
+            "points": 4
+        },
+        {
+            "questionType": "truefalse",
+            "questionText": "The answer to this question is false",
+            "questionAnswer": [0],
+            "points": 4
+        }
+    ]
+}

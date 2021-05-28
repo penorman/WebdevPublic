@@ -68,20 +68,32 @@
             exit();
         }
         else if ($emailExists !== false) {
-            session_start();
-            $_SESSION["userEmail"] = $emailExists["email"];
-            $_SESSION["userFirstName"] = $emailExists["firstName"];
-            $_SESSION["userLastName"] = $emailExists["lastName"];
-            $_SESSION["userType"] = $emailExists["userType"];
-            $_SESSION["userCourse"] = $emailExists["course"];
-            $_SESSION["userId"] = $emailExists["id"];
-
-            if ($_SESSION["userType"] == "student") {
-                header("location: student.php");
+            $id = $emailExists["id"];
+            $result = mysqli_query($conn, "SELECT password FROM students WHERE id =". $id .";");
+            $storedPwd = mysqli_fetch_assoc($result)['password'];
+            
+            if (password_verify($pwd, $storedPwd)){
+                session_start();
+                $_SESSION["userEmail"] = $emailExists["email"];
+                $_SESSION["userFirstName"] = $emailExists["firstName"];
+                $_SESSION["userLastName"] = $emailExists["lastName"];
+                $_SESSION["userType"] = $emailExists["userType"];
+                $_SESSION["userCourse"] = $emailExists["course"];
+                $_SESSION["userId"] = $emailExists["id"];
+                $_SESSION["userLevel"] = $emailExists["levelType"];
+    
+                if ($_SESSION["userType"] == "student") {
+                    header("location: student.php");
+                }
+                if ($_SESSION["userType"] == "tutor") {
+                    header("location: tutor.php");
+                }
             }
-            if ($_SESSION["userType"] == "tutor") {
-                header("location: tutor.php");
+            else {
+                header("location: login.php?passwordIncorrect");
+                exit();
             }
+            
             exit();
         }
     }

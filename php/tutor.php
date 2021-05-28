@@ -39,6 +39,7 @@
             echo "<h2>Your Personal ID: " . $_SESSION["userId"] . "</h2>";
             echo "<h2>Your E-Mail Address: " . $_SESSION["userEmail"] . "</h2>";
             echo "<h2>Your course: " . $_SESSION["userCourse"] . "</h2>";
+            echo "<h2>You are a: " . $_SESSION['userType'] . "</h2>";
         }
     ?>
 </body>

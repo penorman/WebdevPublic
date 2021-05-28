@@ -1,10 +1,5 @@
 <?php
     session_start();
-
-    if (!isset($_SESSION["userEmail"]) OR $_SESSION["userType"] != "tutor") {
-        echo ("You are not authorised!");
-        exit();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +19,16 @@
     <script src="../scripts/scripts.js"></script>
     
     <title>Ace Training</title>
-    
 </head>
-<body onload="populateQuiz()">
+<body onload="populateLevelQuiz('<?php echo $_SESSION['userLevel'];?>')">
     <header>
         <nav>
             <ul class="nav-links">
-                <li><a href="tutor.php">Home</a></li>
-                <li><a href="resourcesTutor.php">Resources</a></li>
-                <li><a href="assignmentstutor.php">Assignments</a></li>
-                <li><a href="studentsList.php">Students</a></li>
+                <li><a href="student.php">Home</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="resourcesStudent.php">Resources</a></li>
+                <li><a href="assignmentsStudent.php">Assignments</a></li>
+                <li><a href="studentReport.php">Report</a></li>
             </ul>
         </nav>
     </header>

@@ -24,7 +24,8 @@
                 <li><a href="student.php">Home</a></li>
                 <li><a href="../html/about.html">About</a></li>
                 <li><a href="resourcesStudent.php">Resources</a></li>
-                <li><a href="../html/assignments.html">Assignments</a></li>
+                <li><a href="assignmentsStudent.php">Assignments</a></li>
+                <li><a href="studentReport.php">Report</a></li>
             </ul>
         </nav>
     </header>
@@ -35,6 +36,8 @@
             echo "<h2>Your Personal ID: " . $_SESSION["userId"] . "</h2>";
             echo "<h2>Your E-Mail Address: " . $_SESSION["userEmail"] . "</h2>";
             echo "<h2>Your course: " . $_SESSION["userCourse"] . "</h2>";
+            echo "<h2>Your level: " . $_SESSION["userLevel"] . "</h2>";
+            echo "<h2>You are a: " . $_SESSION['userType'] . "</h2>";
         }
     ?>
 </body>
